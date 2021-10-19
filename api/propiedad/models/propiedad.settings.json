@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "propiedads",
+  "info": {
+    "name": "propiedad"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "tipo": {
+      "model": "tipo"
+    },
+    "valor": {
+      "type": "decimal",
+      "required": true
+    },
+    "poster": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "url": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "descripcion": {
+      "type": "text",
+      "required": true
+    },
+    "video": {
+      "type": "string"
+    },
+    "screenshot": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "lanzamiento": {
+      "type": "date",
+      "required": true
+    }
+  }
+}
